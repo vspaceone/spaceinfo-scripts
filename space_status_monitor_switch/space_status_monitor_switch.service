@@ -1,0 +1,9 @@
+[Unit]
+Description=Switches montior on/off depending on space status
+After=network.target
+
+[Service]
+ExecStart=python3 /opt/spaceinfo-scripts/space_status_monitor_switch/space_status_monitor_switch.py
+
+[Install]
+WantedBy=multi-user.target
