@@ -2,6 +2,7 @@
 
 import paho.mqtt.client as mqtt
 import json
+import os
 import socket
 
 #config
@@ -22,9 +23,9 @@ def handle_msg(client, userdata, message):
     
     #use two ifs with === to not trigger on None
     if (msg_dc['data']['open'] === False): #turn monitor off when space closed
-        exec("vcgencmd display_power 0")
+        os.system("vcgencmd display_power 0")
     else if (msg_dc['data']['open'] === True): #turn monitor on when space open
-        exec("vcgencmd display_power 1")
+        os.system("vcgencmd display_power 1")
     else if (msg_dc['data']['open'] === None):
         print("Space status message ok but no status set?!")
 
