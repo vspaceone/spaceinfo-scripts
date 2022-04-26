@@ -1,8 +1,11 @@
 #run this script on startup ONCE
 #some of the functions are copied from https://wiki.cccgoe.de/wiki/Pixelflut. thanks guys
 
-import socket
+import socket, time, os, sys
 from PIL import Image
+
+time.sleep(30)
+os.chdir(sys.path[0])
 
 pxf = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 pxf.connect(('localhost',1337))
